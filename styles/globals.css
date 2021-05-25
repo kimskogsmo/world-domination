@@ -14,3 +14,35 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.minklass {
+  color: red
+}
+
+header {
+  background-color: black;
+  color: white;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  place-items: center;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+}
+
+header a:first-child { margin-left: 0 }
+header a:last-child { margin-right: 0; }
+
+a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  padding: 0.5rem 0.75rem;
+}
