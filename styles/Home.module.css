@@ -119,3 +119,125 @@
     flex-direction: column;
   }
 }
+
+
+.inner {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.cashButton {
+  position: absolute;
+  border: none !important;
+  outline: none !important;
+  background-color: transparent;
+  transition: all 0.1s ease-in-out;
+  bottom: 12rem;
+}
+
+.dashboard {
+  width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  grid-template-rows: 1fr;
+  background-color: transparent;
+}
+
+.sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  place-items: center;
+  background-color: rgba(0,0,0,0.05)
+}
+
+.sidebar > div {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: black;
+  border: 1px solid #777;
+  border-radius: 2px;
+  padding: 1rem;
+  min-width: 40px;
+}
+
+.sidebar div div {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar div h4 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.sidebar div img {
+  min-height: 60px;
+  min-width: 60px;
+  max-height: 60px;
+  max-width: 60px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background-color: rgba(255,255,255,0.15);
+  border: 1px solid #333;
+  padding: 0.05rem;
+}
+
+.card {
+  min-height: 400px;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.profileArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clickerArea {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 8rem 0;
+  padding-top: 0;
+  position: relative;
+}
+
+/* @media screen and (max-width: 1024px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+      grid-template-rows: 40vh 1fr;
+    }
+} */
+
+
+.cashButton[animate='1'] {
+  animation: getClicked 0.08s 1;
+}
+
+@keyframes getClicked {
+  0% {
+    transform: scale3d(1, 1, 1);
+    margin-bottom: 0;
+  }
+  50% {
+    transform: scale3d(0.95, 0.95, 0.95);
+    margin-bottom: -15px;
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    margin-bottom: 0;
+  }
+}

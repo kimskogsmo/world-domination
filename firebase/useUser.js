@@ -33,9 +33,10 @@ const useUser = () => {
         // Firebase updates the id token every hour, this
         // makes sure the react state and the cookie are
         // both kept up to date
-        const cancelAuthListener = firebase.auth().onIdTokenChanged((user) => {
+        const cancelAuthListener = firebase.auth().onIdTokenChanged(async (user) => {
             if (user) {
-                const userData = mapUserData(user)
+                const userData = await mapUserData(user)
+
                 setUserCookie(userData)
                 setUser(userData)
             } else {

@@ -4,48 +4,78 @@ import styles from '../styles/globals.css'
 import Link from 'next/link';
 import { Nav, NavDropdown, Form, FormControl, Button, Navbar } from 'react-bootstrap'
 
-import Cashbar from '../features/Cashbar'
-
-function TransitionLayout({ children }) {
-  return (
-    <div>
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-      </nav>
-      <div>
-        {children}
-      </div>
-    </div>
-  );
-}
+import { useUser } from '../firebase/useUser'
+import Toolbar from '../features/Toolbar'
+import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
+  const { user, setUser } = useUser()
+  const [gameState, setGameState] = useState('idle')
+  const [frame, setFrame] = useState(0)
+  console.log('setting')
 
-  return (
-    <div className="world-domination" suppressHydrationWarning={true}>
-      { process.browser && (
-        <>
-          <h1 className={styles.minklass}>En titel</h1>
-          <header className={styles.header}>
-            <div>
-              <Link href="/exchange">Exchange</Link>
-              <Link href="/politicians">Politicians</Link>
-              <Link href="/leaderboards">Leaderboards</Link>
-            </div>
-            <div>
-              <Cashbar money={300}/>
-            </div>
-            <div>
-            <Link href="/">Dashboard</Link>
-            </div>
-          </header>
+  // useEffect(() => {
+  //   setGameState('running')
+  // }, [])
 
-          <Component {...pageProps} />
-        </>
-      )}
-    </div>
-  )
+  // while (gameState == 'running') {
+  //   setInterval(() => {
+  //     let f = frame;
+  //     f++;
+
+  //     setFrame(f)
+  //   }, 50)
+  // }
+
+  if (user) {
+    return (
+      <div className="world-domination" suppressHydrationWarning={true}>
+        { process.browser && (
+          <>
+            <header>
+              <nav className={styles.headerInner}>
+                <div>
+                  <Link href="/dashboard">Dashboard</Link>
+                  <Link href="/exchange">Exchange</Link>
+                  <Link href="/notifications">Notifications</Link>
+                  <Link href="/politicians">Politicians</Link>
+                  <Link href="/leaderboards">Leaderboards</Link>
+                </div>
+              </nav>
+            </header>
+
+            <div style={{
+              position: 'absolute', bottom: '1rem', left: '1rem',
+              height: '40px',
+              width: '40px',
+              borderRadius: '40px',
+              color: 'white',
+              backgroundColor: 'black',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold',
+              fontSize: '1.1rem'
+            }}>
+              {frame}
+            </div>
+  
+            <Component {...pageProps} style={{width: '1240px', margin: '0 auto'}}/>
+          </>
+        )}
+      </div>
+    )
+  } else {
+    return (
+      <div className="world-domination" suppressHydrationWarning={true}>
+        { process.browser && (
+          <>  
+            <Component {...pageProps} />
+          </>
+        )}
+      </div>
+    )
+  }
 }
 
 export default MyApp

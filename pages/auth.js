@@ -13,15 +13,6 @@ const Auth = () => {
             </Head>
             <div className={styles.container}>
                 <h3>Sign in using any auth provider below</h3>
-
-                <FirebaseAuth />
-                
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center"
-                }}>
-                    <a href="/">Go Home</a>
-                </div>
             </div>
         </>
     )

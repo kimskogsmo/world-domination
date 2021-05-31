@@ -10,8 +10,6 @@ module.exports = (phase, { defaultConfig }) => {
     const isStaging =
         phase === PHASE_PRODUCTION_BUILD && process.env.STAGING === '1'
 
-    console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`)
-
     const env = {
         FIREBASE_API_KEY: "AIzaSyBwkwLGt_ZAN81L4XS3dvsp-KrAr5HSKPw",
         FIREBASE_PROJECT_ID: "kim-skogsmo",
@@ -28,6 +26,6 @@ module.exports = (phase, { defaultConfig }) => {
     }
 
     return {
-        env,
+        env
     }
 }

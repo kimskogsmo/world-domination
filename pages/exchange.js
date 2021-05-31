@@ -31,9 +31,7 @@ const Exchange = ({ children }) => {
     }, [])
 
     return (
-        <div style={{
-            padding: "1rem"
-        }}>
+        <div className={styles.inner}>
             <h3>The exchange</h3>
             <p>Buy and sell stuff</p>
             <div style={{

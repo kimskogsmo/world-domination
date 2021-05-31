@@ -3,9 +3,8 @@ import { useEffect, useState } from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from 'firebase/app'
 import 'firebase/auth'
-import { setUserCookie } from '../../firebase/userCookies'
 import { mapUserData } from '../../firebase/mapUserData'
-import { syncDbUser } from '../../firebase/syncDbUser'
+import { setUserCookie } from '../../firebase/userCookies'
 
 init() // initialize firebase
 
@@ -28,8 +27,9 @@ const firebaseAuthConfig = {
     callbacks: {
         signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
             const userData = mapUserData(user)
+
             setUserCookie(userData)
-            syncDbUser(userData)
+            // setUserAuthenticated(userData)
         },
     },
 }

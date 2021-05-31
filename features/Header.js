@@ -1,6 +1,6 @@
 
 import { Nav, NavDropdown, Form, FormControl, Button, Navbar } from 'react-bootstrap'
-// import {Cashbar} from './Cashbar'
+// import {Toolbar} from './Toolbar'
 
 const Header = ({ }) => {
   return (
