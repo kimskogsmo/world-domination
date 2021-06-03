@@ -1,58 +1,46 @@
-// måste ha
-import 'react'
-
-// use state för state, useeffect när nåt ska ändras/läsas in
-import { useState, useEffect } from 'react';
-
-// styles
-import styles from '../styles/Home.module.css'
-
-// använda db
-import init from './../firebase/init';
 import firebase from 'firebase/app'
 import 'firebase/database'
+import styles from '../styles/Home.module.css'
+import { useState, useEffect } from 'react';
+
+import 'react'
+import init from './../firebase/init';
+
 init();
 
-// själva "funktionen"/componenten
 const Leaderboards = ({ children }) => {
-    // socpe börjar
-    const [ppls, setPpl] = useState([])
+    const [ppl, setPpl] = useState([])
 
-    //scope pausar härifrån
     useEffect(() => {
         const dbRef = firebase.database().ref()
 
         const pplRef = dbRef.child('people').once('value', snapshot => {
-
-            // console.log('123123123123',snapshot.val());
-            //scope
-            let ppl = [];
-
-            snapshot.forEach(val => {
-
-                let d = val.val();
-
-                let dude = {
-                    name: d.name,
-                    netWorth: d.netWorth
+            let somePpl = [];
+            
+            snapshot.forEach(dude => {
+                console.log(dude);
+                
+                let aDude = {
+                    name: dude.ref.key,
+                    money: dude.ref.money
                 }
                 
-                ppl.push(dude)
+                somePpl.push(aDude)
             })
             
             setPpl(ppl)
-            //scope slut
         })
     }, [])
-    //hit, oc hfortsätter 
 
     return (
         <>
-            <div>leaderboards</div>
+        <div className={styles.darkPanel} style={{ display: 'flex', flexDirection: 'column' }}>
+            <h1 style={{ color: 'white' }}>Leaderboards</h1>
 
-            {ppls.map(dude => {
+            {ppl.map(dude => {
                 <div>{dude.name}</div>
             })}
+            </div>
         </>
     )
 }

@@ -37,7 +37,6 @@ function MyApp({ Component, pageProps }) {
                 <div>
                   <Link href="/dashboard">Dashboard</Link>
                   <Link href="/exchange">Exchange</Link>
-                  <Link href="/notifications">Notifications</Link>
                   <Link href="/politicians">Politicians</Link>
                   <Link href="/leaderboards">Leaderboards</Link>
                 </div>

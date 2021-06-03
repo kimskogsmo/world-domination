@@ -11,8 +11,8 @@ export default function Home() {
 
   if (user) {
     return (
-      <div className={styles.inner}>
-        <h3>Welcome back, Mr. {user.name}</h3>
+      <div className={styles.panelDark}>
+        <h3 style={{ color: 'white' }}>Welcome back, Mr. {user.name}</h3>
 
         <UserCompanies companies={user.assets.companies} />
 

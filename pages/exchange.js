@@ -31,24 +31,15 @@ const Exchange = ({ children }) => {
     }, [])
 
     return (
-        <div className={styles.inner}>
-            <h3>The exchange</h3>
-            <p>Buy and sell stuff</p>
-            <div style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                width: "100%",
-                padding: "2rem",
-                gap: "2rem",
-                backgroundColor: "#f7f7f7",
-            }}>
+        <div className={styles.darkPanel} style={{ display: 'flex', flexDirection: 'column' }}>
+            <h1 style={{ color: 'white' }}>The Exchange</h1>
+
+            <div className={styles.borderedBox}
+            style={{ marginTop: '1rem', display: 'grid', gridTemplateColumns: '25% 25% 25% 25%', gap: '1rem'}}>
                 {companies.map(c =>
                     <div
-                        style={{
-                            display: "grid",
-                            gridTemplateColumns: "1fr",
-                            gap: "0.75rem"
-                        }}
+                        className={styles.borderedBox}
+                        style={{ display: 'flex', flexDirection: 'column'}}
                         key={c.id}
                     >
                         <span><strong>Name: </strong>{c.name}</span>

@@ -95,7 +95,7 @@ nav {
 nav div {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(5, minmax(max-content, 1fr) );
+  grid-template-columns: repeat(4, minmax(max-content, 1fr) );
   gap: 13px;
 }
 

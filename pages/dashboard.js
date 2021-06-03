@@ -47,12 +47,12 @@ const Dashboard = ({ }) => {
 
     if (user) {
         return (
-            <section className={styles.dashboard}>
+            <section className={styles.darkPanel}>
                 <div className={styles.clickerArea}>
                     <h3 style={{ color: 'white', fontWeight: '700', fontSize: '2.4rem' }}>Your dashboard</h3>
                     <p style={{ color: 'white', fontWeight: '400', fontSize: '1.4rem' }}>Press the magic button to gain cash infinitely.</p>
 
-                    <Toolbar assets={user.assets} compressed={true} />
+                    <Toolbar assets={user.assets} compressed={true}/>
 
                     <CashButton />
                 </div>

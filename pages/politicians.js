@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 
 // använda db
-import init from './../firebase/init';
+import init from '../firebase/init';
 import firebase from 'firebase/app'
 import 'firebase/database'
 init();
@@ -47,12 +47,9 @@ const Politicians = ({ children }) => {
     //hit, oc hfortsätter 
 
     return (
-        <div style={{
-            padding: "1rem"
-        }}>
-            
-            <h3>The exchange</h3>
-            <p>Buy and sell stuff</p>
+        <div className={styles.darkPanel} style={{ display: 'flex', flexDirection: 'column' }}> 
+            <h1 style={{ color: 'white' }}>Politicians</h1>
+
             <div style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr 1fr",
@@ -70,7 +67,7 @@ const Politicians = ({ children }) => {
                         }}
                         key={pol.id}
                     >
-                        <span><strong style={{ color: 'blue' }}>Name: </strong><span style={{ color: 'blue' }}>{pol.name}</span></span>
+                        <span><strong style={{ color: 'white' }}>Name: </strong><span style={{ color: 'blue' }}>{pol.name}</span></span>
                         <span><strong>Bonus: </strong>{pol.bonus}</span>
                         <button>Buy</button>
                     </div>

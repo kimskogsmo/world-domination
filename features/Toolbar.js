@@ -22,7 +22,7 @@ const Toolbar = ({ assets, compressed }) => {
     else if (compressed) {
         return (
             <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem'}}>
-                <span style={{ fontWeight: '800', fontFamily: 'Segoe UI, Helvetica, sans-serif', fontSize: '3.8rem', marginTop: '2rem', color: 'white' }}>€{Number(assets.money).toLocaleString()}</span>
+                <span style={{ padding: '13px 34px', backgroundColor: 'rgba(255,255,255,0.075)', marginBottom: '0.25rem', fontWeight: '800', fontFamily: 'Segoe UI, Helvetica, sans-serif', fontSize: '3.8rem', marginTop: '2rem', color: 'white' }}>€{Number(assets.money).toLocaleString()}</span>
                 <span style={{ display: 'block', fontSize: '1.2rem', color: 'white', fontWeight: '500' }}>+ €48,591 / second</span>
             </div>
         )
